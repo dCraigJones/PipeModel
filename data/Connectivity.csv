@@ -1,0 +1,68 @@
+from,to,type
+Easement - Morse Av to WWTP,Outfall,Pipe
+Seaboard Av - Blanding Bv to Morse Av,Easement - Morse Av to WWTP,Pipe
+Blanding Bv - Blanding PS to Ovella Rd,Seaboard Av - Blanding Bv to Morse Av,Pipe
+Easement - Blanding PS to Blanding Bv,Blanding Bv - Blanding PS to Ovella Rd,Pipe
+Collins Rd - Rampart Rd to Blanding Bv,Blanding Bv - Blanding PS to Ovella Rd,Pipe
+Argyle Forest Bv - Acanthus Dr to Rampart Rd,Collins Rd - Rampart Rd to Blanding Bv,Pipe
+Argyle Forest Bv - Argyle PS to Rampart Rd,Collins Rd - Rampart Rd to Blanding Bv,Pipe
+Morse Av - Firestone Rd to Seaboard Av,Easement - Morse Av to WWTP,Pipe
+Firestone Rd - Wheat Rd to Morse Av,Morse Av - Firestone Rd to Seaboard Av,Pipe
+Wheat Rd - Tampico PS to Firestone Rd,Firestone Rd - Wheat Rd to Morse Av,Pipe
+Wheat Rd - 103rd PS to Firestone Rd,Firestone Rd - Wheat Rd to Morse Av,Pipe
+Morse Av - Ricker Rd to Firestone Rd,Morse Av - Firestone Rd to Seaboard Av,Pipe
+Ricker Rd - Collins Rd to Morse Av,Morse Av - Ricker Rd to Firestone Rd,Pipe
+Morse Av - Shindler Rd to Ricker Rd,Morse Av - Ricker Rd to Firestone Rd,Pipe
+Ricker Rd - Fury PS to Morse Av,Morse Av - Ricker Rd to Firestone Rd,Pipe
+Ortega Farms Bv - Timuquana Rd to 118th St,118th St,Pipe
+Ortega Farms Bv - Buck Point Rd to Timuquana Rd,Ortega Farms Bv - Timuquana Rd to 118th St,Pipe
+Ortega Farms Bv - Wilson PS to Buck Point Rd,Ortega Farms Bv - Buck Point Rd to Timuquana Rd,Pipe
+Wilson Bv - Parvin Dr to Wilson PS,Ortega Farms Bv - Wilson PS to Buck Point Rd,Pipe
+Lane Av - Alachua PS to Wilson Bv,Wilson Bv - Parvin Dr to Wilson PS,Pipe
+Wilson Bv - Springtree PS to Lane Av,Ortega Farms Bv - Wilson PS to Buck Point Rd,Pipe
+Lenox Av - Lenox PS to Alachua PS,Alachua Bv,Pipe
+Fury Dr,Ricker Rd - Fury PS to Morse Av,Pump
+103rd St - Brighton Park Ln to Fury PS,Fury Dr,Pipe
+103rd St - Samaritan Wy to Brighton Park Ln,103rd St - Brighton Park Ln to Fury PS,Pipe
+Easement - Normandy Bv to 103rd St,103rd St - Samaritan Wy to Brighton Park Ln,Pipe
+Normandy Bv - Chaffee Rd to Rothbury PS,Easement - Normandy Bv to 103rd St,Pipe
+Perimeter Rd - New World Av to Samaritan Wy,103rd St - Samaritan Wy to Brighton Park Ln,Pipe
+New World Av - Water Works St to Perimeter Rd,Parkland,Pipe
+New World Av - Parkland Rd to Perimeter Rd,Perimeter Rd - New World Av to Samaritan Wy,Pipe
+Argyle Forest Bv - Cross Timbers Dr to Argyle Forest PS,Argyle Forest Bv,Pipe
+Argyle Forest Bv - Old Middleburg Rd to Cross Timbers Dr,Argyle Forest Bv - Cross Timbers Dr to Argyle Forest PS,Pipe
+Oakleaf Plantation Pkwy - Chaffee Rd to Old Middleburg Rd,Argyle Forest Bv - Old Middleburg Rd to Cross Timbers Dr,Pipe
+Oakleaf Village Pkwy - Plantation Oaks Bv to Argyle Forest Bv,Argyle Forest Bv - Cross Timbers Dr to Argyle Forest PS,Pipe
+Blanding,Easement - Blanding PS to Blanding Bv,Basin
+Collins Rd,Collins Rd - Rampart Rd to Blanding Bv,Basin
+Acanthus,Argyle Forest Bv - Acanthus Dr to Rampart Rd,Basin
+Argyle Forest Bv,Argyle Forest Bv - Argyle PS to Rampart Rd,Pump
+Morse Av,Morse Av - Firestone Rd to Seaboard Av,Basin
+Tampico,Wheat Rd - Tampico PS to Firestone Rd,Basin
+103rd,Wheat Rd - 103rd PS to Firestone Rd,Basin
+Ricker Rd,Ricker Rd - Collins Rd to Morse Av,Basin
+Shindler Dr,Morse Av - Shindler Rd to Ricker Rd,Basin
+Wesconnett,Ortega Farms Bv - Buck Point Rd to Timuquana Rd,Basin
+Wilson,Ortega Farms Bv - Wilson PS to Buck Point Rd,Basin
+Alachua Bv,Lane Av - Alachua PS to Wilson Bv,Pump
+Springtree,Wilson Bv - Springtree PS to Lane Av,Basin
+Lenox,Lenox Av - Lenox PS to Alachua PS,Basin
+No Road,103rd St - Brighton Park Ln to Fury PS,Basin
+Bent Creek,103rd St - Samaritan Wy to Brighton Park Ln,Basin
+Herlong,Easement - Normandy Bv to 103rd St,Basin
+Normandy,Easement - Normandy Bv to 103rd St,Basin
+JCCC,New World Av - Water Works St to Perimeter Rd,Basin
+Tree Farm,New World Av - Water Works St to Perimeter Rd,Basin
+Cecil Field,Parkland,Basin
+Parkland,New World Av - Parkland Rd to Perimeter Rd,Pump
+Maxville,Normandy Bv - Winding Mare Bv to New World Av,Basin
+Argyle - East,Argyle Forest Bv - Cross Timbers Dr to Argyle Forest PS,Basin
+Argyle - West,Argyle Forest Bv - Old Middleburg Rd to Cross Timbers Dr,Basin
+Oakleaf,Oakleaf Plantation Pkwy - Chaffee Rd to Old Middleburg Rd,Basin
+Brannan Field,Oakleaf Village Pkwy - Plantation Oaks Bv to Argyle Forest Bv,Basin
+118th St,Outfall,Pump
+Normandy Bv - Winding Mare Bv to New World Av,Parkland,Pipe
+Outfall,Outfall,Basin
+Timuquana - 4881,Ortega Farms Bv - Timuquana Rd to 118th St,Basin
+Timuquana - 5565,Ortega Farms Bv - Buck Point Rd to Timuquana Rd,Basin
+NAS,Ortega Farms Bv - Timuquana Rd to 118th St,Basin

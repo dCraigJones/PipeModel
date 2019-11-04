@@ -1,0 +1,44 @@
+Pipe,DS,L_ft,D_inch,C,k,ADF_mgd,PF,PHF_gpm,V_fps,HL_ft,UHL_ft-kft,P_ft,EL_ft AD
+Outfall,0,0,99,120,0,0,0,0,0,0,0,0,20
+Easement - Morse Av to WWTP,,2300,30,120,0,0,0,0,0,0,0,0,0
+Seaboard Av - Blanding Bv to Morse Av,,5300,24,120,0,0,0,0,0,0,0,0,0
+Blanding Bv - Blanding PS to Ovella Rd,,6000,20,120,0,0,0,0,0,0,0,0,0
+Easement - Blanding PS to Blanding Bv,,3100,12,120,0,0,0,0,0,0,0,0,0
+Collins Rd - Rampart Rd to Blanding Bv,,12500,20,120,0,0,0,0,0,0,0,0,0
+Argyle Forest Bv - Acanthus Dr to Rampart Rd,,4000,12,120,0,0,0,0,0,0,0,0,0
+Argyle Forest Bv - Argyle PS to Rampart Rd,,6100,20,120,0,0,0,0,0,0,0,0,0
+Morse Av - Firestone Rd to Seaboard Av,,10700,24,120,0,0,0,0,0,0,0,0,0
+Firestone Rd - Wheat Rd to Morse Av,,5200,16,120,0,0,0,0,0,0,0,0,0
+Wheat Rd - Tampico PS to Firestone Rd,,2800,16,120,0,0,0,0,0,0,0,0,0
+Wheat Rd - 103rd PS to Firestone Rd,,5700,12,120,0,0,0,0,0,0,0,0,0
+Morse Av - Ricker Rd to Firestone Rd,,2600,24,120,0,0,0,0,0,0,0,0,0
+Ricker Rd - Collins Rd to Morse Av,,10600,12,120,0,0,0,0,0,0,0,0,0
+Morse Av - Shindler Rd to Ricker Rd,,24800,16,120,0,0,0,0,0,0,0,0,0
+Ricker Rd - Fury PS to Morse Av,,11600,20,120,0,0,0,0,0,0,0,0,0
+Old Middleburg Rd - Argyle Forest Bv to Shindler Dr,,5700,16,120,0,0,0,0,0,0,0,0,0
+Oakleaf Plantation Parkway - Chaffee Rd to Old Middleburg Rd,,13900,16,120,0,0,0,0,0,0,0,0,0
+118th St,,0,99,120,0,0,0,0,0,0,0,0,0
+Ortega Farms Bv - Buck Point Rd to Timuquana Rd,,13600,24,90,0,0,0,0,0,0,0,0,0
+Ortega Farms Bv - Wilson PS to Buck Point Rd,,4800,24,90,0,0,0,0,0,0,0,0,0
+Wilson Bv - Parvin Dr to Wilson PS,,1500,24,120,0,0,0,0,0,0,0,0,0
+Lane Av - Alachua PS to Wilson Bv,,16100,24,120,0,0,0,0,0,0,0,0,0
+Wilson Bv - Springtree PS to Lane Av,,11900,16,120,0,0,0,0,0,0,0,0,0
+Lenox Av - Lenox PS to Alachua PS,,5700,12,100,0,0,0,0,0,0,0,0,0
+Fury Dr,,0,99,120,0,0,0,0,0,0,0,0,0
+103rd St - Brighton Park Ln to Fury PS,,17400,16,120,0,0,0,0,0,0,0,0,0
+103rd St - Samaritan Wy to Brighton Park Ln,,4100,16,120,0,0,0,0,0,0,0,0,0
+Easement - Normandy Bv to 103rd St,,9700,12,120,0,0,0,0,0,0,0,0,30
+Normandy Bv - Chaffee Rd to Rothbury PS,,7900,16,120,0,0,0,0,0,0,0,0,0
+Perimeter Rd - New World Av to Samaritan Wy,,14200,24,120,0,0,0,0,0,0,0,0,0
+New World Av - Water Works St to Perimeter Rd,,7300,16,120,0,0,0,0,0,0,0,0,0
+New World Av - Parkland Rd to Perimeter Rd,,2800,16,120,0,0,0,0,0,0,0,0,0
+Rampart Rd,,0,99,120,0,0,0,0,0,0,0,0,20
+Argyle Forest Bv - Cross Timbers Dr to Argyle Forest PS,,3500,20,120,0,0,0,0,0,0,0,0,0
+Argyle Forest Bv - Old Middleburg Rd to Cross Timbers Dr,,11200,16,120,0,0,0,0,0,0,0,0,0
+Oakleaf Plantation Pkwy - Chaffee Rd to Old Middleburg Rd,,13900,16,120,0,0,0,0,0,0,0,0,0
+Oakleaf Village Pkwy - Plantation Oaks Bv to Argyle Forest Bv,,5300,16,120,0,0,0,0,0,0,0,0,0
+Parkland,,0,99,120,0,0,0,0,0,0,0,0,0
+Argyle Forest Bv,,0,99,120,0,0,0,0,0,0,0,0,0
+Alachua Bv,,0,99,120,0,0,0,0,0,0,0,0,0
+Ortega Farms Bv - Timuquana Rd to 118th St,,0,99,120,0,0,0,0,0,0,0,0,0
+Normandy Bv - Winding Mare Bv to New World Av,,31000,16,120,0,0,0,0,0,0,0,0,0
