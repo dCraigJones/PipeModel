@@ -17,17 +17,20 @@ if (Sys.info()["nodename"]=="LAPTOP-Q1GSUFR7") {
 
 if(!require("igraph")) install.packages("igraph"); library(igraph)
 
+library(ggraph)
+library(tidygraph)
+
 
 # Load Graph --------------------------------------------------------------
 
-Pipe <- read.csv("./data/southwest/Pipe.csv", header=T, sep=",")
-Basin <- read.csv("./data/southwest/GISA.csv", header=T, sep=",")
-Conn <- read.csv("./data/southwest/connectivity.csv", header=T, sep=",")
+Pipe <- read.csv("./data/holiday/Pipe.csv", header=T, sep=",")
+Basin <- read.csv("./data/holiday/GISA.csv", header=T, sep=",")
+Conn <- read.csv("./data/holiday/connectivity.csv", header=T, sep=",")
 
 
-load("./data/southwest/SW.Rdata")
+load("./data/holiday/layout.Rdata")
 
-year <- c(2018, seq(2020,2040,5))
+#year <- c(2018, seq(2020,2040,5))
 
 A <- data.frame(from=Conn[,1], to=Conn[,2], type=Conn[,3])
 
@@ -54,79 +57,77 @@ textNum <- match(Conn[pipeNum,1],Pipe[,1])
 text[pipeNum] <- paste0(Pipe[textNum,4], "''")
 
 V(g)$label <- text
+V(g)$label[19] <- "WWTP"
+V(g)$label[16] <- "30''/36''"
 V(g)$label.degree <- pi/4
 V(g)$label.cex <- 0.75
 V(g)$label.font <- 2
 
 E(g)$arrow.size <- 0.25
 
-#tkid <- tkplot(g, layout=l) #tkid is the id of the tkplot that will open
-#l <- tkplot.getcoords(tkid) # grab the coordinates from tkplot
+tkid <- tkplot(g, layout=l) #tkid is the id of the tkplot that will open
+l <- tkplot.getcoords(tkid) # grab the coordinates from tkplot
 
-#save(l, l.old, file="SW.RData")
+#save(l, file="./data/holiday/layout.RData")
 #dev.new(width = 1900, height = 900, unit = "px")
 par(mar=rep(0,4))
 plot(g, layout=l)
 
 
-# tidygraph sandbox -------------------------------------------------------
-# https://www.data-imaginist.com/2017/introducing-tidygraph/
-# https://www.data-imaginist.com/2018/tidygraph-1-1-a-tidy-hope/
-
+# tidygraph sandvox -------------------------------------------------------
 library(tidygraph)
 
 g_tree <- as_tbl_graph(g)
+e <- g_tree %>% activate(edges) %>% as_tibble()
+g_tree <- g_tree %>% activate(nodes) %>% mutate(type=c(e$type,"Outfall"))
 
-g_tree %>% activate(edges) %>% as_tibble() %>% View()
+p <- g_tree %>% activate(nodes) %>% as_tibble() %>% select(name)
 
+p$label <- NULL
 
-# ggraph sandbox ----------------------------------------------------------
+m <- match(p$name, Pipe$Pipe)
+mn <- !is.na(m)
+p$label[mn] <- paste0(Pipe$D_inch[m[mn]], "''")
 
-library(ggraph)
+m <- match(p$name, Basin$Basin)
+mn <- !is.na(m)
+p$label[mn] <- as.character(Basin$Basin[m[mn]])
 
-ggraph(g, layout = l) + 
-  geom_edge_link() + 
-  #geom_node_point +
-  geom_node_text(aes(label=name))
+g_tree <- g_tree %>% activate(nodes) %>% mutate(label=p$label)
 
-p <- ggraph(g, layout = l) + 
-  geom_edge_link() + 
-  geom_node_point()
-
-# NetworkD3 test ----------------------------------------------------------
-
-library(networkD3)
-
-d3 <- igraph_to_networkD3(g)
-
-forceNetwork(Links = d3$links, Nodes = d3$nodes,
-             Source = 'source', Target = 'target', NodeID = 'name',
-             Group = 'group')
+ggraph(g_tree, layout = "nicely") + 
+  geom_edge_link(arrow=arrow(length=unit(3, 'mm'))
+     , end_cap=circle(5,'mm')
+  ) + 
+  geom_node_point(size=10
+     , col="white"
+  ) +
+  geom_node_text(aes(label=label))
 
 # Run Pipe Model ----------------------------------------------------------
 
 
-
+# Assign DS_Node
 Pipe[,2] <- match(Conn[match(Pipe[,1], Conn[,1]),2],Pipe[,1])
-
 Pipe[1,2] <- 0
-
-
 Basin[,2] <- match(Conn[match(Basin[,1],Conn[,1]),2],Pipe[,1])
 
+Basin[7,2] <- 0
+Basin[8,3] <- 0
+ 
 Run.Pipe.Model()
 
-n.60psi.10yr <- (1:length(PPipe[,1]))[apply(PPipe[,1:10],1,max)>(60*2.31)]
-nc.60psi.10yr <- match(rownames(PPipe[n.60psi.10yr,]),Conn[,1])
-
-n.80psi.10yr <- (1:length(PPipe[,1]))[apply(PPipe[,1:10],1,max)>(80*2.31)]
-nc.80psi.10yr <- match(rownames(PPipe[n.80psi.10yr,]),Conn[,1])
-
-
-#lapply(n.5yr, function(x) Draw.Pipe.Capacity.Curve(x))
-
-V(g)[nc.60psi.10yr]$color=JEA.Orange
-V(g)[nc.80psi.10yr]$color="red"
+# n.60psi.10yr <- (1:length(PPipe[,1]))[apply(PPipe[,1:10],1,max)>(60*2.31)]
+# nc.60psi.10yr <- match(rownames(PPipe[n.60psi.10yr,]),Conn[,1])
+# 
+# n.80psi.10yr <- (1:length(PPipe[,1]))[apply(PPipe[,1:10],1,max)>(80*2.31)]
+# nc.80psi.10yr <- match(rownames(PPipe[n.80psi.10yr,]),Conn[,1])
+# 
+# 
+# #lapply(n.5yr, function(x) Draw.Pipe.Capacity.Curve(x))
+# 
+# V(g)[nc.60psi.10yr]$color=JEA.Orange
+# V(g)[nc.80psi.10yr]$color="red"
 
 
 plot(g, layout=l)

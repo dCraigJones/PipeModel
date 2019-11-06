@@ -31,8 +31,8 @@ Assign_ADF_to_Pipe_From_Basin <- function(n=3){
 Calc_Pipe_Hydraulics <- function(){
   for(i in 1:length(Pipe[,1])) {
     Pipe[i,6] <<- Pipe[i,3]*ke(Pipe[i,4],Pipe[i,5])
-    Pipe[i,8] <<- round(PF(Pipe[i,7]*1E6),2)
-    Pipe[i,9] <<- round(PHF(Pipe[i,7]*1E6),0)
+    Pipe[i,8] <<- round(PF(Pipe[i,7]),2)
+    Pipe[i,9] <<- round(PHF(Pipe[i,7]),0)
     Pipe[i,10] <<- round(0.408*Pipe[i,9]/Pipe[i,4]^2,1)
     Pipe[i,11] <<- round(Pipe[i,6]*Pipe[i,9]^1.85,2)
     Pipe[i,12] <<- round(Pipe[i,11]/Pipe[i,3]*1000,2)
@@ -42,7 +42,7 @@ Calc_Pipe_Hydraulics <- function(){
 
 GetP <- function(DS.Node) {
   for(i in 1:length(Pipe[,1])) {
-    print(c(i, DS.Node))
+    #print(c(i, DS.Node))
     if((Pipe[i,2]==DS.Node) && !(is.na(Pipe[i,2]))){#} && (Pipe[i,4]<99) && !(is.na(Pipe[17,2]))) {
       
 #       DS.Pressure <- Pipe[DS.Node, 13]
@@ -52,8 +52,8 @@ GetP <- function(DS.Node) {
 #       Pipe[i,13] <<- Pipe[i,11] + Pipe[DS.Node,14] + DS.Pressure
       
       ifelse(Pipe[i,4]==99,
-          (Pipe[i,13] <<- Pipe[i,11] + Pipe[DS.Node,14] + 0),
-          (Pipe[i,13] <<- Pipe[i,11] + Pipe[DS.Node,14] + Pipe[DS.Node,13]))
+          (Pipe[i,13] <<- Pipe[i,11] ),#♦+ Pipe[DS.Node,14] + 0),
+          (Pipe[i,13] <<- Pipe[i,11] + Pipe[DS.Node,13])) #+ Pipe[DS.Node,14] + Pipe[DS.Node,13]))
       GetP(i)
     }    
   }
@@ -69,10 +69,11 @@ Add.Static <- function() {
 
 Reset_Pipe <- function() {Pipe[,6:13] <<- 0}
 
+
 Run.Pipe.Model <- function() {
   PPipe <- NULL
   VPipe <- NULL
-  for (i in 3:(length(Basin[1,])-1)) {
+  for (i in 3:(length(Basin[1,]))) {
     Reset_Pipe()
     Assign_ADF_to_Pipe_From_Basin(i)
     Calc_Pipe_Hydraulics()
@@ -84,24 +85,24 @@ Run.Pipe.Model <- function() {
   }
   
 #  PPipe <<- PPipe
-   colnames(PPipe) <- c(2018, seq(2020,2040,10))
+   colnames(PPipe) <- c(2018, seq(2020,2070,10))
    rownames(PPipe) <- Pipe[,1]
-   colnames(VPipe) <- c(2018, seq(2020,2040,10))
+   colnames(VPipe) <- c(2018, seq(2020,2070,10))
    rownames(VPipe) <- Pipe[,1]
    
   P <- matrix(rep(0,
-                  (length(PPipe[,1]))*length(2018:2040)
+                  (length(PPipe[,1]))*length(2018:2070)
   ), nrow=length(PPipe[,1]))
   V <- P
   
   for (i in 1:length(PPipe[,1])) {
-    P[i,] <- approx(c(2018, seq(2020,2040,10)),PPipe[i,], xout=2018:2040)$y
-    V[i,] <- approx(c(2018, seq(2020,2040,10)),VPipe[i,], xout=2018:2040)$y 
+    P[i,] <- approx(c(2018, seq(2020,2070,10)),PPipe[i,], xout=2018:2070)$y
+    V[i,] <- approx(c(2018, seq(2020,2070,10)),VPipe[i,], xout=2018:2070)$y 
   }
    
-   colnames(P) <- 2018:2040
+   colnames(P) <- 2018:2070
    rownames(P) <- Pipe[,1]
-   colnames(V) <- 2018:2040
+   colnames(V) <- 2018:2070
    rownames(V) <- Pipe[,1]
    
    PPipe <<- P

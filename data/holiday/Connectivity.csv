@@ -1,0 +1,20 @@
+from,to,type
+Atlantic Bv - 9380,Atlantic Bv - Atlantic Bv PS to Southside Bv,Basin
+Agave Rd - 10150,Tresca Rd - Agave PS to Regency Square Bv,Basin
+Tresca Rd - 420,Tresca Rd - Tresca PS to Regency Square Bv,Basin
+Holiday Rd S - 7834,Holiday Rd - Holiday Rd PS to Southside Bv,Basin
+Bowlan St N - 544,Kona Av - Bowlan PS to Southside Bv,Basin
+Mill Creek Rd - 1030,Mill Creek Rd - Mill Creek PS to Lone Star Rd,Basin
+Atlantic Bv - Atlantic Bv PS to Southside Bv,Southside Bv - Atlantic Bv to Kona Av,Pipe
+Tresca Rd - Agave PS to Regency Square Bv,Monument Rd - Tresca Rd to Lone Star Rd,Pipe
+Tresca Rd - Tresca PS to Regency Square Bv,Monument Rd - Tresca Rd to Lone Star Rd,Pipe
+Holiday Rd - Holiday Rd PS to Southside Bv,Southside Bv - MacAurthur Ct to Atlantic Bv,Pipe
+Kona Av - Bowlan PS to Southside Bv,Mill Creek Rd - Kona Av to Mill Creek PS,Pipe
+Mill Creek Rd - Mill Creek PS to Lone Star Rd,Lone Star Rd - Mill Creek Rd to Monument Rd,Pipe
+Southside Bv - Atlantic Bv to Kona Av,Mill Creek Rd - Kona Av to Mill Creek PS,Pipe
+Mill Creek Rd - Kona Av to Mill Creek PS,Mill Creek Rd - Mill Creek PS to Lone Star Rd,Pipe
+Monument Rd - Tresca Rd to Lone Star Rd,Millcoe Rd - Trednick Py to WWTP,Pipe
+Millcoe Rd - Trednick Py to WWTP,Outfall,Pipe
+Southside Bv - MacAurthur Ct to Atlantic Bv,Southside Bv - Atlantic Bv to Kona Av,Pipe
+Lone Star Rd - Mill Creek Rd to Monument Rd,Millcoe Rd - Trednick Py to WWTP,Pipe
+Monterey,Lone Star Rd - Mill Creek Rd to Monument Rd,Basin
