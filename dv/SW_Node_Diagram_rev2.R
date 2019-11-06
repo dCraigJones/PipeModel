@@ -69,6 +69,17 @@ par(mar=rep(0,4))
 plot(g, layout=l)
 
 
+# tidygraph sandbox -------------------------------------------------------
+# https://www.data-imaginist.com/2017/introducing-tidygraph/
+# https://www.data-imaginist.com/2018/tidygraph-1-1-a-tidy-hope/
+
+library(tidygraph)
+
+g_tree <- as_tbl_graph(g)
+
+g_tree %>% activate(edges) %>% as_tibble() %>% View()
+
+
 # ggraph sandbox ----------------------------------------------------------
 
 library(ggraph)
