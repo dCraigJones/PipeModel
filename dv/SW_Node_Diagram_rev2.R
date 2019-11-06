@@ -1,24 +1,32 @@
-setwd("G:/Financial Services/Corporate Planning/Planning Group/Craig/_JEA Master Plans/Southwest Basin - w LU Method/H1 - Capacity Curve Model/PipeModel")
-.libPaths("G:/Delivery/Shared/ACAD/JonesDC/_Support/RWD")
-source("G:/Financial Services/Corporate Planning/Hydraulic Model Files/R Library/pump_v1.R")
-source("G:/Financial Services/Corporate Planning/Hydraulic Model Files/R Library/Master_Plan_Pipe_Model.R")
+# Front Matter ------------------------------------------------------------
+
+if (Sys.info()["nodename"]=="LAPTOP-JEA") {
+  #setwd("G:/Financial Services/Corporate Planning/Planning Group/Craig/_JEA Master Plans/Southwest Basin - w LU Method/H1 - Capacity Curve Model/PipeModel")
+  .libPaths("G:/Delivery/Shared/ACAD/JonesDC/_Support/RWD")
+  #source("G:/Financial Services/Corporate Planning/Hydraulic Model Files/R Library/pump_v1.R")
+  library(pumpR)
+  source("./R-lib/mppm.R")
+  
+}
+
+if (Sys.info()["nodename"]=="LAPTOP-Q1GSUFR7") {
+  library(pumpR)
+  source("./R-Lib/mppm.R")
+  
+}
 
 if(!require("igraph")) install.packages("igraph"); library(igraph)
 
-Pipe <- read.csv("Pipe.csv", header=T, sep=",")
-Basin <- read.csv("GISA.csv", header=T, sep=",")
-Conn <- read.csv("connectivity.csv", header=T, sep=",")
-# 
-# . <- match("Brannan Field", Conn[,1])
-# . <- match(Conn[.,2], Conn[,1])
-# Conn[.,2] <- Pipe[17,1]
-# 
-# . <- match("Oakleaf", Conn[,1])
-# . <- match(Conn[.,2], Conn[,1])
-# Conn[.,2] <- Pipe[17,1]
 
-load("SW.Rdata")
-#Conn[64,2] <- NA
+# Load Graph --------------------------------------------------------------
+
+Pipe <- read.csv("./data/southwest/Pipe.csv", header=T, sep=",")
+Basin <- read.csv("./data/southwest/GISA.csv", header=T, sep=",")
+Conn <- read.csv("./data/southwest/connectivity.csv", header=T, sep=",")
+
+
+load("./data/southwest/SW.Rdata")
+
 year <- c(2018, seq(2020,2040,5))
 
 A <- data.frame(from=Conn[,1], to=Conn[,2], type=Conn[,3])
@@ -57,7 +65,35 @@ E(g)$arrow.size <- 0.25
 
 #save(l, l.old, file="SW.RData")
 #dev.new(width = 1900, height = 900, unit = "px")
+par(mar=rep(0,4))
 plot(g, layout=l)
+
+
+# ggraph sandbox ----------------------------------------------------------
+
+library(ggraph)
+
+ggraph(g, layout = l) + 
+  geom_edge_link() + 
+  #geom_node_point +
+  geom_node_text(aes(label=name))
+
+p <- ggraph(g, layout = l) + 
+  geom_edge_link() + 
+  geom_node_point()
+
+# NetworkD3 test ----------------------------------------------------------
+
+library(networkD3)
+
+d3 <- igraph_to_networkD3(g)
+
+forceNetwork(Links = d3$links, Nodes = d3$nodes,
+             Source = 'source', Target = 'target', NodeID = 'name',
+             Group = 'group')
+
+# Run Pipe Model ----------------------------------------------------------
+
 
 
 Pipe[,2] <- match(Conn[match(Pipe[,1], Conn[,1]),2],Pipe[,1])
