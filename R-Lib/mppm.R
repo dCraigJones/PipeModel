@@ -111,8 +111,8 @@ Run.Pipe.Model <- function() {
 
 Draw.Pipe.Capacity.Curve <- function(rowindex, PLOT=FALSE) {
   
-  Con <- matrix(c(seq(2018,2040,1),rep(60,23)), ncol=2, byrow=F)
-  Cap <- matrix(c(seq(2018,2040,1),rep(20,23)), ncol=2, byrow=F)
+  Con <- matrix(c(seq(2018,2070,1),rep(60,23)), ncol=2, byrow=F)
+  Cap <- matrix(c(seq(2018,2070,1),rep(20,23)), ncol=2, byrow=F)
   
   if (PLOT == TRUE) {
     #png(file=paste0(rowindex," - ", rownames(PPipe)[rowindex],".png"), width=900, height=500)
@@ -146,7 +146,7 @@ Draw.Pipe.Capacity.Curve <- function(rowindex, PLOT=FALSE) {
   #barplot(Con[,2], space=0, col="lavenderblush4", axes=F, ylim=c(0,100))
   #barplot(Cap[,2], space=0, add=T, axes=F, col="lemonchiffon3")
   
-  axis(1, at=c(1,seq(2,23,5)), labels=c(2018,seq(2020,2040,5)), lwd=0, las=2, cex=1.5, line=0)
+  axis(1, at=c(1,seq(2,53,5)), labels=c(2018,seq(2020,2070,5)), lwd=0, las=2, cex=1.5, line=0)
   
   axis(2, line=0, lwd=2, lwd.ticks=1, at=seq(0,100,20), labels=seq(0,100,20), las=1)
   mtext("Manifold Pressure (PSI)",2, line=2)

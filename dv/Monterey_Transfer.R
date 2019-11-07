@@ -74,7 +74,7 @@ par(mar=rep(0,4))
 plot(g, layout=l)
 
 
-# tidygraph sandvox -------------------------------------------------------
+# tidygraph sandbox -------------------------------------------------------
 library(tidygraph)
 
 g_tree <- as_tbl_graph(g)
@@ -105,7 +105,9 @@ ggraph(g_tree, layout = "nicely") +
   geom_node_text(aes(label=label))
 
 # Run Pipe Model ----------------------------------------------------------
+Basin <- read.csv("./data/holiday/STPO.csv", header=T, sep=",")
 
+Basin <- Basin[1:8,1:9]
 
 # Assign DS_Node
 Pipe[,2] <- match(Conn[match(Pipe[,1], Conn[,1]),2],Pipe[,1])
@@ -130,4 +132,41 @@ Run.Pipe.Model()
 # V(g)[nc.80psi.10yr]$color="red"
 
 
-plot(g, layout=l)
+#plot(g, layout=l)
+Draw.All.Pipe.Capacity.Curves()
+
+PPipe.old <- PPipe
+VPipe.old <- VPipe
+
+Basin[8,3:ncol(Basin)] <- 0
+
+Run.Pipe.Model()
+
+PPipe.curr <- PPipe
+VPipe.curr <- VPipe
+
+PPipe <- PPipe.old
+VPipe <- VPipe.old
+
+PPipe.stpo <- PPipe
+VPipe.stpo <- VPipe
+
+Draw.Pipe.Capacity.Curve(3)
+lines(PPipe.curr[2,1:23]/2.31, lwd=2, col="grey50", lty=2)
+lines(PPipe.stpo[2,1:23]/2.31, lwd=2, col="grey50", lty=2)
+
+Draw.Pipe.Capacity.Curve(9)
+lines(VPipe.curr[9,1:23]*10, lwd=2, col="grey50", lty=2)
+lines(VPipe.stpo[9,1:23]*10, lwd=2, col="grey50", lty=2)
+
+Draw.Pipe.Capacity.Curve(4)
+lines(PPipe.curr[4,1:23]/2.31, lwd=2, col="grey50", lty=2)
+lines(PPipe.stpo[4,1:23]/2.31, lwd=2, col="grey50", lty=2)
+
+Draw.Pipe.Capacity.Curve(6)
+lines(PPipe.curr[6,1:23]/2.31, lwd=2, col="grey50", lty=2)
+lines(PPipe.stpo[6,1:23]/2.31, lwd=2, col="grey50", lty=2)
+
+Draw.Pipe.Capacity.Curve(8)
+lines(PPipe.curr[8,1:23]/2.31, lwd=2, col="grey50", lty=2)
+lines(PPipe.stpo[8,1:23]/2.31, lwd=2, col="grey50", lty=2)
